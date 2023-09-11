@@ -1,6 +1,7 @@
 ﻿using projeto_final_bloco_01.Model;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System;
+using projeto_final_bloco_01.Controller;
 
 namespace projeto_final_bloco_01
 {
@@ -9,15 +10,18 @@ namespace projeto_final_bloco_01
         private static ConsoleKeyInfo consoleKeyInfo;
         static void Main(string[] args)
         {
-            int opcao, tipo, numero;
-            string? nome;
-            decimal preco;
+            int opcao, tipo, numero, tamanhoCalcado;
+            string? nome, tamanhoRoupa, cor;
+            float preco;
 
-            Roupa r1 = new Roupa(90, "Vestido", 159, 1, "Amarelo", "P");
-            r1.Visualizar();
+            ProdutoController produtos = new();
 
-            Calcado c1 = new Calcado(150, "Bota", 259, 2, 36);
-            c1 .Visualizar();
+            //Produtos Pré-Cadastrados
+            Roupa r1 = new Roupa(90, "Vestido", produtos.GerarNumero(), 1, "Amarelo", "P");
+            produtos.CriarProduto(r1);
+
+            Calcado c1 = new Calcado(150, "Bota", produtos.GerarNumero(), 2, 36);
+            produtos.CriarProduto(c1);
 
             while (true)
             {
@@ -25,7 +29,7 @@ namespace projeto_final_bloco_01
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("\n\n*********************************************");
                 Console.WriteLine("                                             ");
-                Console.WriteLine("             Lojinha da Shomara              ");
+                Console.WriteLine("     Lojinha da Shomara | Moda Feminina      ");
                 Console.WriteLine("                                             ");
                 Console.WriteLine("*********************************************");
                 Console.WriteLine("                                             ");
@@ -58,7 +62,7 @@ namespace projeto_final_bloco_01
                 {
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("\nLojinha da Shomara");
+                    Console.WriteLine("\nLojinha da Shomara | Moda Feminina");
                     Sobre();
                     Console.ResetColor();
                     System.Environment.Exit(0);
@@ -73,15 +77,37 @@ namespace projeto_final_bloco_01
 
                         Console.WriteLine("Digite o nome do Produto: ");
                         nome = Console.ReadLine();
-
                         nome ??= string.Empty;
 
-                        Console.WriteLine("Digite o tipo do Produto: ");
-                        tipo = Convert.ToInt32(Console.ReadLine());
-
                         Console.WriteLine("Digite o preço do Produto: ");
-                        preco = Convert.ToDecimal(Console.ReadLine());
+                        preco = Convert.ToSingle(Console.ReadLine());
 
+                        do
+                        {
+                            Console.WriteLine("Digite o Tipo do Produto: ");
+                            tipo = Convert.ToInt32(Console.ReadLine());
+                        } while (tipo != 1 && tipo != 2);
+
+                        switch (tipo)
+                        {
+                            case 1:
+                                Console.WriteLine("Digite o Tamanho do produto: ");
+                                tamanhoRoupa = Console.ReadLine();
+
+                                Console.WriteLine("Digite a Cor do produto: ");
+                                cor = Console.ReadLine();
+
+                                tamanhoRoupa ??= string.Empty;
+                                produtos.CriarProduto(new Roupa(preco, nome, produtos.GerarNumero(), tipo, cor, tamanhoRoupa));
+                                break;
+
+                            case 2:
+                                Console.WriteLine("Digite o Tamanho do produto: ");
+                                tamanhoCalcado = Convert.ToInt32(Console.ReadLine());
+
+                                produtos.CriarProduto(new Calcado(preco, nome, produtos.GerarNumero(), tipo, tamanhoCalcado));
+                                break;
+                        }
                         Keypress();
                         break;
 
@@ -90,6 +116,7 @@ namespace projeto_final_bloco_01
                         Console.WriteLine("Listar todos os Produtos\n");
                         Console.ResetColor();
 
+                        produtos.ListarTodosProdutos();
 
                         Keypress();
                         break;
@@ -102,6 +129,7 @@ namespace projeto_final_bloco_01
                         Console.WriteLine("Digite o número do ID do Produto: ");
                         numero = Convert.ToInt32(Console.ReadLine());
 
+                        produtos.ConsultaProdutoID(numero);
 
                         Keypress();
                         break;
@@ -114,6 +142,48 @@ namespace projeto_final_bloco_01
                         Console.WriteLine("Digite o número do ID do produto: ");
                         numero = Convert.ToInt32(Console.ReadLine());
 
+                        var produto = produtos.BuscarIdNaCollection(numero);
+
+                        if (produto is not null)
+                        {
+                            Console.WriteLine("Digite o Nome do produto: ");
+                            nome = Console.ReadLine();
+
+                            Console.WriteLine("Digite o Preço do produto ");
+                            preco = Convert.ToSingle(Console.ReadLine());
+
+                            nome ??= string.Empty;
+
+                            tipo = produto.GetTipo();
+
+                            switch (tipo)
+                            {
+                                case 1:
+                                    Console.WriteLine("Digite o Tamanho do produto: ");
+                                    tamanhoRoupa = Console.ReadLine();
+
+                                    Console.WriteLine("Digite a Cor do produto: ");
+                                    cor = Console.ReadLine();
+
+                                    tamanhoRoupa ??= string.Empty;
+                                    produtos.Atualizar(new Roupa(preco, nome, produto.GetId(), tipo, cor, tamanhoRoupa));
+                                    break;
+
+                                case 2:
+                                    Console.WriteLine("Digite o Tamanho do produto: ");
+                                    tamanhoCalcado = Convert.ToInt32(Console.ReadLine());
+
+                                    produtos.Atualizar(new Calcado(preco, nome, produto.GetId(), tipo, tamanhoCalcado));
+                                    break;
+                            }
+                        }
+
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine($"o ID do produto {numero} não foi encontrado!");
+                            Console.ResetColor();
+                        }
 
 
                         Keypress();
@@ -127,6 +197,7 @@ namespace projeto_final_bloco_01
                         Console.WriteLine("Digite o número do ID do produto que deseja apagar: ");
                         numero = Convert.ToInt32(Console.ReadLine());
 
+                        produtos.Deletar(numero);
 
                         Keypress();
                         break;

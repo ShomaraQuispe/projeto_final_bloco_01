@@ -47,7 +47,7 @@ namespace projeto_final_bloco_01.Model
             Console.WriteLine("*********************************************************************");
             Console.WriteLine("Identificador do Produto: " + this.id);
             Console.WriteLine("Nome do Produto: " + this.nomeDoProduto);
-            Console.WriteLine("Preço do Produto: " + this.preco);
+            Console.WriteLine("Preço do Produto: " + (this.preco).ToString(format: "C"));
             Console.WriteLine("Tipo do Produto: " + tipo);
         }
     }
