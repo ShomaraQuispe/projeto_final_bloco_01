@@ -1,0 +1,14 @@
+C:\Users\shoma\OneDrive\Área de Trabalho\projeto_final_bloco_01\projeto_final_bloco_01\obj\Debug\net7.0\projeto_final_bloco_01.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shoma\OneDrive\Área de Trabalho\projeto_final_bloco_01\projeto_final_bloco_01\obj\Debug\net7.0\projeto_final_bloco_01.AssemblyInfoInputs.cache
+C:\Users\shoma\OneDrive\Área de Trabalho\projeto_final_bloco_01\projeto_final_bloco_01\obj\Debug\net7.0\projeto_final_bloco_01.AssemblyInfo.cs
+C:\Users\shoma\OneDrive\Área de Trabalho\projeto_final_bloco_01\projeto_final_bloco_01\obj\Debug\net7.0\projeto_final_bloco_01.csproj.CoreCompileInputs.cache
+C:\Users\shoma\OneDrive\Área de Trabalho\projeto_final_bloco_01\projeto_final_bloco_01\bin\Debug\net7.0\projeto_final_bloco_01.exe
+C:\Users\shoma\OneDrive\Área de Trabalho\projeto_final_bloco_01\projeto_final_bloco_01\bin\Debug\net7.0\projeto_final_bloco_01.deps.json
+C:\Users\shoma\OneDrive\Área de Trabalho\projeto_final_bloco_01\projeto_final_bloco_01\bin\Debug\net7.0\projeto_final_bloco_01.runtimeconfig.json
+C:\Users\shoma\OneDrive\Área de Trabalho\projeto_final_bloco_01\projeto_final_bloco_01\bin\Debug\net7.0\projeto_final_bloco_01.dll
+C:\Users\shoma\OneDrive\Área de Trabalho\projeto_final_bloco_01\projeto_final_bloco_01\bin\Debug\net7.0\projeto_final_bloco_01.pdb
+C:\Users\shoma\OneDrive\Área de Trabalho\projeto_final_bloco_01\projeto_final_bloco_01\obj\Debug\net7.0\projeto_final_bloco_01.dll
+C:\Users\shoma\OneDrive\Área de Trabalho\projeto_final_bloco_01\projeto_final_bloco_01\obj\Debug\net7.0\refint\projeto_final_bloco_01.dll
+C:\Users\shoma\OneDrive\Área de Trabalho\projeto_final_bloco_01\projeto_final_bloco_01\obj\Debug\net7.0\projeto_final_bloco_01.pdb
+C:\Users\shoma\OneDrive\Área de Trabalho\projeto_final_bloco_01\projeto_final_bloco_01\obj\Debug\net7.0\projeto_final_bloco_01.genruntimeconfig.cache
+C:\Users\shoma\OneDrive\Área de Trabalho\projeto_final_bloco_01\projeto_final_bloco_01\obj\Debug\net7.0\ref\projeto_final_bloco_01.dll
