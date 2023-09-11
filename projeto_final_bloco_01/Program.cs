@@ -13,6 +13,12 @@ namespace projeto_final_bloco_01
             string? nome;
             decimal preco;
 
+            Roupa r1 = new Roupa(90, "Vestido", 159, 1, "Amarelo", "P");
+            r1.Visualizar();
+
+            Calcado c1 = new Calcado(150, "Bota", 259, 2, 36);
+            c1 .Visualizar();
+
             while (true)
             {
                 Console.BackgroundColor = ConsoleColor.Black;
@@ -35,7 +41,6 @@ namespace projeto_final_bloco_01
                 Console.WriteLine("Entre com a opção desejada:                  ");
                 Console.WriteLine("                                             ");
                 Console.ResetColor();
-
 
                 try
                 {
